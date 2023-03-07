@@ -272,6 +272,8 @@ export function markdownTable(table, options = {}) {
   while (++rowIndex < cellMatrix.length) {
     const row = cellMatrix[rowIndex]
     const sizes = sizeMatrix[rowIndex]
+    /* XTABLE: if empty header row assume headerless and skip first row */
+    if (!rowIndex && !row.join('')) continue
     columnIndex = -1
     /** @type {Array<string>} */
     const line = []
